@@ -5,10 +5,10 @@ import Content from "./Content"
 
 function App() {
   return (
-    <div className="App">
+    <div className="App bg-base-200">
 		<Nav/>
-		<div className='Canvas'>
-			<div className="artboard bg-neutral Contain">
+		<div className='Canvas '>
+			<div className="artboard bg-base-300 Contain">
 				<Content/>
 				<Content/>
 				<Content/>
