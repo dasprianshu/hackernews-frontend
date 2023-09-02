@@ -1,0 +1,46 @@
+.Smallbtn{
+	display: none;
+}
+
+.btn{
+	margin-left: 3%;
+}
+
+.btn:hover{
+	background-color: rgba(240, 116, 116, 0);
+}
+
+.Marginright{
+  margin-right: 3%;
+  padding: 0.2%;
+}
+
+.Searchbar{
+	width: 50vw;
+}
+
+@media (max-width: 1024px){
+	.Searchbar:focus{
+		width: 60vw;
+	}
+}
+
+@media (max-width: 640px){
+	.Searchbar{
+		width: 60vw;
+	}
+	.Searchbar:focus{
+		width: 70vw;
+	}
+	.btn{
+		/* padding: 0 6% 2px; */
+		/* margin: 0; */
+	}
+	.Smallbtn{
+		display: inherit;
+		/* margin-left: 2%; */
+	}
+	.Bigbtn{
+		display: none;
+	}
+}
