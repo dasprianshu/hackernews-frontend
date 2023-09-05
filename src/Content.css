@@ -1,21 +1,23 @@
 
 .New-card{
-    margin: 0.9%;
+    margin: 1%;
     width: 100%;
 }
 
 .News-card{
-    padding: 3% 4% 3%;
+    padding: 2%;
+    margin-left: 2%;
+    margin-top: 1%;
 }
 
 /* .H2inline{
     display: inline;
 } */
 
-.Posted-by{
+/* .Posted-by{
     display: flex;
     justify-content: flex-end;
-}
+} */
 
 .Bottombtn{
     margin: 0 2% 2.3%;
@@ -32,14 +34,15 @@
 .Actions{
     display: flex;
     justify-content: space-between;
-    right: 0;
+    padding: 1% 2% 0.5%;
 }
 
 .Time{
     margin-right: 2%;
 }
 
-@media (max-width: 400px){
+
+@media (max-width: 390px){
     .Cmt{
         display: none;
     }

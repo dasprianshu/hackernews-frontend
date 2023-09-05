@@ -13,6 +13,7 @@
 
 .Searchbar{
 	width: 50vw;
+	color: hsl(var(--a));
 }
 
 @media (max-width: 1024px){
