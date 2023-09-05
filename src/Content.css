@@ -1,21 +1,46 @@
 
 .card{
     margin: 0.9%;
+    width: 100%;
 }
 
 .News-card{
-    padding: 3% 6% 2%;
-    
+    padding: 3% 4% 3%;
+}
+
+.H2inline{
+    display: inline;
+}
+
+.Posted-by{
+    display: flex;
+    justify-content: flex-end;
 }
 
 .Bottombtn{
-    margin-right: 2%;
-    margin-bottom: 2%;
+    margin: 0 2% 2.3%;
+    justify-content: flex-start;
+    /* width: 30%; */
 }
 
 .Interact{
     margin: 0;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
 }
-/* .btn-circle:hover{
-    background-color: rgba(253, 253, 253, 0);
-} */
+
+.Actions{
+    display: flex;
+    justify-content: space-between;
+    right: 0;
+}
+
+.Time{
+    margin-right: 2%;
+}
+
+@media (max-width: 400px){
+    .Cmt{
+        display: none;
+    }
+}
