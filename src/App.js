@@ -6,7 +6,9 @@ import Content from "./Content"
 function App() {
 	let printContent = [];
 	for(let i=1; i<=30; i++){
-		printContent.push(<Content id={i}/>);
+		let rand = Math.floor(Math.random() * 1000);
+		let rand2 = Math.floor(Math.random() * 50);
+		printContent.push(<Content id={i} points={rand} comments={rand2}/>);
 	}
   return (
     <div className="App bg-base-200">

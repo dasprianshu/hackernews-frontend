@@ -1,5 +1,5 @@
 
-.card{
+.New-card{
     margin: 0.9%;
     width: 100%;
 }
@@ -8,9 +8,9 @@
     padding: 3% 4% 3%;
 }
 
-.H2inline{
+/* .H2inline{
     display: inline;
-}
+} */
 
 .Posted-by{
     display: flex;
