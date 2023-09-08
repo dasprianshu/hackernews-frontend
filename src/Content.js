@@ -31,7 +31,7 @@ function Content({itemId}) {
     return (  
         <div className="card New-card bg-base-100 shadow-xl">
             <div className="card-body News-card">
-                <a href={story.url} >
+                <a href={story.url} target='blank' rel="noreferrer noopener">
                     <h2 className="card-title H2inline link link-hover link-accent">{story.title}</h2>
                 </a>
             </div>
