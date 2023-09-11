@@ -14,19 +14,20 @@
 	flex-direction: column;
 	justify-content: baseline;
 	align-items: center;
-	/* height: 87vh; */
 	width: 80vw;
 	max-width: 900px;
 	margin-bottom: 1%;
 	border-radius: 16px 16px;
 	margin-top: 1.5%;
 	padding: 1% 3%;
+	min-height: 87vh;
 }
 @media (max-width: 640px) { 
 	.Contain{
 		border-radius: 0;
 		padding: 1% 3%;
 		width: 100vw;
+		min-height: 95vh;
 	}
 }
 .Canvas{

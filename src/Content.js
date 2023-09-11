@@ -13,6 +13,7 @@ function Content({itemId}) {
 		const fetchItems = async () => {
 			try{
 				const response = await fetch(`${itemUrl}${itemId}.json`);
+                // setStory([]);
 				const data = await response.json();	
 				setStory(data);
 			}

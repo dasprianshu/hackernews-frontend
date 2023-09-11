@@ -12,8 +12,9 @@ function App() {
 		const fetchItems = async () => {
 			try{
 				const response = await fetch(`${storyUrl}${reqType}stories.json`);
+				setItems([]);
 				const data = await response.json();	
-				let dataNeeded = data.slice(0, 30);
+				const dataNeeded = await data.slice(0, 30);
 				setItems(dataNeeded);
 			}
 			catch(err){
@@ -26,12 +27,6 @@ function App() {
 
 	// console.log(items);
 	let allStories = items.map(itemId => (<Content itemId={itemId}/>));
-	// let printContent = [];
-	// for(let i=1; i<=30; i++){
-	// 	let rand = Math.floor(Math.random() * 1000);
-	// 	let rand2 = Math.floor(Math.random() * 50);
-	// 	printContent.push(<Content id={i} points={rand} comments={rand2}/>);
-	// }
 
 	
   return (
