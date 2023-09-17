@@ -57,7 +57,7 @@ function Nav({reqType, setReqType}) {
             <button 
             onClick={scrollToTop}
             className="btn btn-square btn-outline btn-accent App-up Marginright"
-            style={{display: visible ? 'inherit' : 'none'}}
+            style={{display: visible ? 'inherit' : 'none', maxWidth: "350px"}}
             >
 				<img src={Up} alt="up" />
 			</button>
