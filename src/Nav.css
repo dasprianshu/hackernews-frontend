@@ -4,13 +4,6 @@
 	z-index: 99;	
 }
 
-.App-up{
-	background-color: hsl(var(--a));
-	border-width: 0.3em;
-	width: 50vw;
-	margin: 0;
-}
-
 .Smallbtn{
 	display: none;
 }

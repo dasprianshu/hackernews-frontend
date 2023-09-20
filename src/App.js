@@ -1,6 +1,7 @@
 import './App.css';
 import Nav from './Nav';
 import Content from "./Content";
+import Up from './assets/arrow_up.svg';
 import { RotatingSquare } from 'react-loader-spinner';
 import { useState, useEffect} from 'react';
 
@@ -34,6 +35,29 @@ function App() {
 
 
 	let allStories = items.map(itemId => (<Content itemId={itemId}/>));
+
+	const [visible, setVisible] = useState(false);
+    
+    const toggleVisible = () => {
+        const scrolled = document.documentElement.scrollTop;
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight;
+
+        if (scrolled > 1000 && scrolled < documentHeight - windowHeight) {
+            setVisible(true);
+        } else {
+            setVisible(false);
+        }
+    }
+
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+
+    window.addEventListener('scroll', toggleVisible);
 	
 	
   return (
@@ -55,6 +79,13 @@ function App() {
 				{allStories}
 			</div>
 		</div>
+		<button 
+		onClick={scrollToTop}
+		className="btn btn-square btn-outline btn-accent App-up"
+		style={{display: visible ? ' ' : 'none'}}
+		>
+			<img src={Up} alt="up" />
+		</button>
     </div>
   );
 }

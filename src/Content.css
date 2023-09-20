@@ -7,17 +7,17 @@
 .News-card{
     padding: 2%;
     margin-left: 2%;
-    margin-top: 1%;
+    margin-top: 0.5%;
 }
 
 /* .H2inline{
     display: inline;
 } */
 
-/* .Posted-by{
-    display: flex;
-    justify-content: flex-end;
-} */
+.Posted-by{
+    text-overflow: ellipsis;
+    max-width: 25vw;
+}
 
 .Bottombtn{
     margin: 0 2% 2.3%;

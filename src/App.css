@@ -1,14 +1,13 @@
 
-@media (max-width: 640px) {
+/* @media (max-width: 640px) {
 	.App-up{
-		/* top: 2%; */
 		bottom: 1%;
 		left: 0;
 		width: 92vw;
 		background-color: hsl(var(--a));
 		margin: 3% 4%;
 	}
-}
+} */
 .Contain{
 	display: flex;
 	flex-direction: column;
@@ -35,6 +34,18 @@
 	display: flex;
 	justify-content: center;
 }
+
+.App-up{
+	background-color: hsl(var(--a));
+	border-width: 0.3em;
+	width: 50vw;
+	max-width: 350px;
+	margin: 0;
+	position: fixed;
+	left: 4%;
+	bottom: 4%;
+}
+
 
 @keyframes App-logo-spin {
   from {

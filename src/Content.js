@@ -26,6 +26,17 @@ function Content({itemId}) {
 		fetchItems();
 	})
 
+    function getHostName(fullURL) {
+    try {
+        const url = new URL(fullURL);
+        return url.hostname;
+    } catch (error) {
+        // Handle invalid URLs or exceptions here
+        console.error('Invalid URL:', fullURL);
+        return null; // You can choose to return a default value or handle the error as needed
+    }
+    }
+
     const options = {year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', hour12: false, minute: 'numeric'};
     const milliUnixTime = story.time * 1000;
     const dateObject = new Date(milliUnixTime);
@@ -46,7 +57,8 @@ function Content({itemId}) {
             <div style={{display: isLoading ? 'none' : 'block'}}>
                 <div className="card-body News-card">
                     <a href={story.url} target='blank' rel="noreferrer noopener">
-                        <h2 className="card-title H2inline link link-hover link-accent">{story.title}</h2>
+                        <h2 className="card-title H2inline link link-hover link-accent">{story.title} </h2>
+                        <span className='text-neutral-content text-sm'>{getHostName(story.url)}</span> 
                     </a>
                 </div>
                 <div className="Actions">
@@ -65,7 +77,7 @@ function Content({itemId}) {
 
 
                     </div>
-                        <button className="btn Time Interact link-hover no-animation bg-neutral normal-case btn-sm text-md">{humanTime}</button>
+                        <button className="btn Time Interact no-animation bg-neutral normal-case btn-sm text-md">{humanTime}</button>
                     
                 </div>
             </div>
