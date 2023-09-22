@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import "./Content.css";
 import { ProgressBar } from 'react-loader-spinner';
-import Cmnt from "./assets/forum.svg"
+import Cmnt from "./assets/forum.svg";
+// import Up from "./assets/arrow_up.svg";
 //https://hacker-news.firebaseio.com/v0/item/856763.json
 
 function Content({itemId}) {
@@ -27,20 +28,40 @@ function Content({itemId}) {
 	})
 
     function getHostName(fullURL) {
-    try {
-        const url = new URL(fullURL);
-        return url.hostname;
-    } catch (error) {
-        // Handle invalid URLs or exceptions here
-        console.error('Invalid URL:', fullURL);
-        return null; // You can choose to return a default value or handle the error as needed
-    }
+        try {
+            const url = new URL(fullURL);
+            return url.hostname;
+        } catch (error) {
+            console.error('Invalid URL:', fullURL);
+            return null; 
+        }
     }
 
-    const options = {year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', hour12: false, minute: 'numeric'};
-    const milliUnixTime = story.time * 1000;
-    const dateObject = new Date(milliUnixTime);
-    const humanTime = dateObject.toLocaleString("en-US", options);
+    function timeElapsed(time) {
+        const currentTime = Math.floor(Date.now() / 1000);
+        const elapsedSeconds = currentTime - time; 
+        if (elapsedSeconds < 60) {
+        return `${elapsedSeconds} second${elapsedSeconds !== 1 ? 's' : ''} ago`;
+        } else if (elapsedSeconds < 3600) {
+        const minutes = Math.floor(elapsedSeconds / 60);
+        return `${minutes} minute${minutes !== 1 ? 's' : ''} ago`;
+        } else if (elapsedSeconds < 86400) {
+        const hours = Math.floor(elapsedSeconds / 3600);
+        return `${hours} hour${hours !== 1 ? 's' : ''} ago`;
+        } else if (elapsedSeconds < 604800) {
+        const days = Math.floor(elapsedSeconds / 86400);
+        return `${days} day${days !== 1 ? 's' : ''} ago`;
+        } else if (elapsedSeconds < 2419200) {
+        const weeks = Math.floor(elapsedSeconds / 604800);
+        return `${weeks} week${weeks !== 1 ? 's' : ''} ago`;
+        } else if (elapsedSeconds < 29030400) {
+        const months = Math.floor(elapsedSeconds / 2419200);
+        return `${months} month${months !== 1 ? 's' : ''} ago`;
+        } else {
+        const years = Math.floor(elapsedSeconds / 29030400);
+        return `${years} year${years !== 1 ? 's' : ''} ago`;
+        }
+    }
 
     return (  
         <div className="card New-card bg-base-100 shadow-xl">
@@ -57,27 +78,34 @@ function Content({itemId}) {
             <div style={{display: isLoading ? 'none' : 'block'}}>
                 <div className="card-body News-card">
                     <a href={story.url} target='blank' rel="noreferrer noopener">
-                        <h2 className="card-title H2inline link link-hover link-accent">{story.title} </h2>
-                        <span className='text-neutral-content text-sm'>{getHostName(story.url)}</span> 
+                        <h2 className="card-title link link-hover link-accent">{story.title}</h2>
                     </a>
+                    <div className='Content-info'>
+                        <span className='text-neutral-content text-sm'><i>{getHostName(story.url)}</i></span> 
+                        <span className='text-neutral-content text-sm'>{timeElapsed(story.time)}</span>
+                    </div>
                 </div>
                 <div className="Actions">
                     <div className="card-actions justify-end Bottombtn">
                         <div className="btn-group">
-                            <button className="btn Interact no-animation  btn-sm bg-accent text-md">
-                            {story.score} 
+                            <button className="btn Interact normal-case btn-sm bg-accent text-md hover:bg-accent">
+                            {story.score}
+                            {/* <img src={Up} alt="Upvote"></img> */}
                             </button>
                             
-                            <button className="btn Posted-by Interact normal-case btn-sm bg-base-200 text-md">{story.by}</button>
+                            <button className="btn Cmt Interact no-animation bg-base-200 normal-case btn-sm text-md">{story.by}</button>
 
-                            <button className="btn Cmt Interact bg-neutral btn-sm text-md">
-                            {story.descendants} <img src={Cmnt} alt="Cmnt"></img>
+                            <button className="btn Posted-by no-animation Interact btn-sm bg-neutral text-md hover:bg-accent">
+                            {story.descendants}
+                            <img src={Cmnt} alt="Cmnt"></img>
                             </button>
                         </div>
 
 
                     </div>
-                        <button className="btn Time Interact no-animation bg-neutral normal-case btn-sm text-md">{humanTime}</button>
+                        <button className="btn Time Interact bg-neutral normal-case btn-sm text-md hover:bg-accent">
+                         View Post
+                        </button>
                     
                 </div>
             </div>

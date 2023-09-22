@@ -1,13 +1,8 @@
+img{
+	margin-left: auto;
+	margin-right: auto;
+}
 
-/* @media (max-width: 640px) {
-	.App-up{
-		bottom: 1%;
-		left: 0;
-		width: 92vw;
-		background-color: hsl(var(--a));
-		margin: 3% 4%;
-	}
-} */
 .Contain{
 	display: flex;
 	flex-direction: column;
@@ -40,7 +35,6 @@
 	border-width: 0.3em;
 	width: 50vw;
 	max-width: 350px;
-	margin: 0;
 	position: fixed;
 	left: 4%;
 	bottom: 4%;

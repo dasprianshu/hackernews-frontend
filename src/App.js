@@ -43,7 +43,7 @@ function App() {
         const windowHeight = window.innerHeight;
         const documentHeight = document.documentElement.scrollHeight;
 
-        if (scrolled > 1000 && scrolled < documentHeight - windowHeight) {
+        if (scrolled > 900 && scrolled < documentHeight - windowHeight) {
             setVisible(true);
         } else {
             setVisible(false);
@@ -82,7 +82,7 @@ function App() {
 		<button 
 		onClick={scrollToTop}
 		className="btn btn-square btn-outline btn-accent App-up"
-		style={{display: visible ? ' ' : 'none'}}
+		style={{display: visible ? 'block' : 'none'}}
 		>
 			<img src={Up} alt="up" />
 		</button>

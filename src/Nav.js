@@ -15,7 +15,7 @@ function Nav({reqType, setReqType}) {
 
             <form 
             onSubmit={(e) => e.preventDefault()} 
-            className="btn-group Marginright"
+            className="join Marginright"
             >
                 <Category
                 buttonText="top"

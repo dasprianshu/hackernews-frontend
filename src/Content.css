@@ -5,14 +5,20 @@
 }
 
 .News-card{
-    padding: 2%;
+    padding: 2% 2% 2.5%;
     margin-left: 2%;
+    margin-right: 2%;
     margin-top: 0.5%;
+    gap: 0;
 }
 
-/* .H2inline{
-    display: inline;
-} */
+.Content-info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 1%;
+}
+
 
 .Posted-by{
     text-overflow: ellipsis;
@@ -39,11 +45,4 @@
 
 .Time{
     margin-right: 2%;
-}
-
-
-@media (max-width: 390px){
-    .Cmt{
-        display: none;
-    }
 }
