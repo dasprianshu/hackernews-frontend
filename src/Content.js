@@ -88,14 +88,14 @@ function Content({itemId}) {
                 <div className="Actions">
                     <div className="card-actions justify-end Bottombtn">
                         <div className="btn-group">
-                            <button className="btn Interact normal-case btn-sm bg-accent text-md hover:bg-accent">
+                            <button className="btn Interact no-animation normal-case btn-sm bg-accent text-md hover:bg-accent">
                             {story.score}
                             {/* <img src={Up} alt="Upvote"></img> */}
                             </button>
                             
-                            <button className="btn Cmt Interact no-animation bg-base-200 normal-case btn-sm text-md">{story.by}</button>
+                            <button className="btn Cmt Interact bg-base-200 normal-case btn-sm text-md">{story.by}</button>
 
-                            <button className="btn Posted-by no-animation Interact btn-sm bg-neutral text-md hover:bg-accent">
+                            <button className="btn Posted-by no-animation Interact btn-sm bg-neutral text-md">
                             {story.descendants}
                             <img src={Cmnt} alt="Cmnt"></img>
                             </button>
@@ -103,10 +103,11 @@ function Content({itemId}) {
 
 
                     </div>
-                        <button className="btn Time Interact bg-neutral normal-case btn-sm text-md hover:bg-accent">
-                         View Post
+                    <a href='/comments'>
+                        <button className="btn md:btn-wide View-post Time bg-neutral normal-case btn-sm text-md hover:bg-accent">
+                         Discussion
                         </button>
-                    
+                    </a>
                 </div>
             </div>
         </div>
