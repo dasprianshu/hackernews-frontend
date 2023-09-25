@@ -41,10 +41,10 @@ function Content({itemId}) {
         const currentTime = Math.floor(Date.now() / 1000);
         const elapsedSeconds = currentTime - time; 
         if (elapsedSeconds < 60) {
-        return `${elapsedSeconds} second${elapsedSeconds !== 1 ? 's' : ''} ago`;
+        return `${elapsedSeconds} sec${elapsedSeconds !== 1 ? 's' : ''} ago`;
         } else if (elapsedSeconds < 3600) {
         const minutes = Math.floor(elapsedSeconds / 60);
-        return `${minutes} minute${minutes !== 1 ? 's' : ''} ago`;
+        return `${minutes} min${minutes !== 1 ? 's' : ''} ago`;
         } else if (elapsedSeconds < 86400) {
         const hours = Math.floor(elapsedSeconds / 3600);
         return `${hours} hour${hours !== 1 ? 's' : ''} ago`;
@@ -95,7 +95,7 @@ function Content({itemId}) {
                             
                             <button className="btn Cmt Interact bg-base-200 normal-case btn-sm text-md">{story.by}</button>
 
-                            <button className="btn Posted-by no-animation Interact btn-sm bg-neutral text-md">
+                            <button className="btn Posted-by no-animation Interact btn-sm bg-neutral hover:bg-neutral text-md">
                             {story.descendants}
                             <img src={Cmnt} alt="Cmnt"></img>
                             </button>

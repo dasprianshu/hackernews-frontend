@@ -39,7 +39,7 @@ function App() {
 	const [visible, setVisible] = useState(false);
     
     const toggleVisible = () => {
-        const scrolled = document.documentElement.scrollTop;
+        const scrolled = document.documentElement.scrollTop + 30;
         const windowHeight = window.innerHeight;
         const documentHeight = document.documentElement.scrollHeight;
 

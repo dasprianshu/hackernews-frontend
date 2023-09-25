@@ -1,4 +1,8 @@
 
+.card-title{
+    word-break: break-all;
+}
+
 .New-card{
     margin: 1%;
     width: 100%;
