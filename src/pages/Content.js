@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import "./Content.css";
 import { ProgressBar } from 'react-loader-spinner';
-import Cmnt from "./assets/forum.svg";
-// import Up from "./assets/arrow_up.svg";
+import Cmnt from "../assets/forum.svg";
 //https://hacker-news.firebaseio.com/v0/item/856763.json
 
 function Content({itemId}) {

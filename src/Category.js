@@ -12,7 +12,7 @@ const Category = ({buttonText, reqType, setReqType}) => {
         <button 
         className={`btn join-item btn-accent lg:text-lg no-animation lg:btn-wide ${buttonText === reqType ? null : "btn-outline"}`}
         type="button"
-        style={{width: "20vw", maxWidth: "230px"}}
+        style={{width: "20vw", maxWidth: "230px", minWidth: "5rem"}}
         onClick={composite}
         >
             {buttonText}

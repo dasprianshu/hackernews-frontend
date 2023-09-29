@@ -1,49 +1,41 @@
 .navbar{
 	position: fixed;
 	top: 0;
-	z-index: 99;	
+	z-index: 99;
+	display: flex;
+	justify-content: space-between;	
+	gap: 0.5rem;
 }
 
-.Smallbtn{
-	display: none;
+.Logo{
+	padding-left: 0.5rem;
 }
-
-.Marginleft{
-	margin-left: 4%;
-}
-
-.Marginright{
-  margin-right: 2%;
-  padding: 0.2%;
+.btnGroup{
+	padding-right: 0.5rem;
 }
 
 .Searchbar{
-	width: 50vw;
+	width: 3.7rem;
 	color: hsl(var(--a));
 }
 
-@media (max-width: 1024px){
+/* @media (max-width: 1024px){
 	.Searchbar:focus{
-		width: 60vw;
+		width: 90vw;
 	}
-}
+} */
 
 @media (max-width: 640px){
-	.Searchbar{
-		width: 60vw;
+	/* .Searchbar{
+		width:20vw;
 	}
 	.Searchbar:focus{
-		width: 70vw;
-	}
-	.btn{
-		/* padding: 0 6% 2px; */
-		/* margin: 0; */
-	}
-	.Smallbtn{
-		display: inherit;
-		/* margin-left: 2%; */
-	}
-	.Bigbtn{
+		width: 40vw;
+	} */
+}
+
+/* @media (max-width: 425px) {
+	.Logo{
 		display: none;
 	}
-}
+} */
