@@ -2,7 +2,8 @@ import './App.css';
 import Nav from './Nav';
 import Up from './assets/arrow_up.svg';
 import Home from './pages/Home';
-import { useState} from 'react';
+// import Comments from './pages/Comments';
+import { useState } from 'react';
 
 
 function App() {
@@ -31,7 +32,6 @@ function App() {
     }
 
     window.addEventListener('scroll', toggleVisible);
-	// console.log(window.location.pathname)
 	
   return (
     <div id='top' className="App bg-base-200">

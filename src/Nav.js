@@ -1,6 +1,6 @@
 import "./Nav.css";
 import Category from "./Category";
-import Logo from "./assets/logo49.png"
+import Logo from "./assets/Logo.png";
 // import React, { useState } from 'react';
 
 function Nav({reqType, setReqType}) {
