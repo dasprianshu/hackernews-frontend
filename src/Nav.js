@@ -1,35 +1,20 @@
 import "./Nav.css";
-import Category from "./Category";
+import Navbutton from "./Navbutton";
 import Logo from "./assets/Logo.png";
 // import React, { useState } from 'react';
 
-function Nav({reqType, setReqType}) {
+function Nav() {
     // const [searchState, setSearchState] = useState(false);
 
     return ( 
         <div className="navbar bg-base-200 text-primary-content">
             <a href='/' className="Logo"> <img src={Logo} alt="logo"></img> </a>
 
-            <form 
-            onSubmit={(e) => e.preventDefault()} 
-            className="join btnGroup"
-            >
-                <Category
-                buttonText="top"
-                reqType={reqType}
-                setReqType={setReqType}
-                />
-                <Category
-                buttonText="new"
-                reqType={reqType}
-                setReqType={setReqType}
-                />
-                <Category
-                buttonText="best"
-                reqType={reqType}
-                setReqType={setReqType}
-                />
-            </form>
+            <ul className="join btnGroup">
+                <Navbutton buttonText="top"/>
+                <Navbutton buttonText="new"/>
+                <Navbutton buttonText="best"/>
+            </ul>
 
             {/* <button onClick={() => {setSearchState(true);}} className="btn btn-accent" style={{display: searchState ? 'none' : 'block'}}>&#x1F50D;</button>
             <div className="">

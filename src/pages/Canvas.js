@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { RotatingSquare } from 'react-loader-spinner';
 import Content from "./Content";
-import "./Home.css";
+import "./Canvas.css";
 
-function Home({reqType}) {
+function Canvas({type}) {
     const storyUrl = "https://hacker-news.firebaseio.com/v0/";
 	const [items, setItems] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -11,7 +11,7 @@ function Home({reqType}) {
     useEffect(() => {
 		const fetchItems = async () => {
 			try{
-				const response = await fetch(`${storyUrl}${reqType}stories.json`);
+				const response = await fetch(`${storyUrl}${type}stories.json`);
 				const data = await response.json();	
 				const dataNeeded = await data.slice(0, 30);
 				setItems(dataNeeded);
@@ -26,7 +26,7 @@ function Home({reqType}) {
 		setIsLoading(true);
 
 		fetchItems();
-	}, [reqType])
+	}, [type])
 
 
 	let allStories = items.map(itemId => (<Content itemId={itemId}/>));
@@ -50,4 +50,4 @@ function Home({reqType}) {
     );
 }
 
-export default Home;
+export default Canvas;

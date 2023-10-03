@@ -1,14 +1,12 @@
+import { Route, Routes, Navigate } from 'react-router-dom';
+import { useState } from 'react';
 import './App.css';
 import Nav from './Nav';
 import Up from './assets/arrow_up.svg';
-import Home from './pages/Home';
-// import Comments from './pages/Comments';
-import { useState } from 'react';
-
+import Canvas from './pages/Canvas';
+import Thread from './pages/Thread';
 
 function App() {
-
-	const [reqType, setReqType] = useState('top');
 
 	const [visible, setVisible] = useState(false);
     
@@ -35,9 +33,16 @@ function App() {
 	
   return (
     <div id='top' className="App bg-base-200">
-		<Nav reqType={reqType} setReqType={setReqType}/>
+		<Nav/>
 
-		<Home reqType={reqType}/>
+		<Routes>
+      <Route path='/' element={<Navigate replace to="/top" /> } />
+
+      <Route path='/top' element={<Canvas type="top"/>} />
+      <Route path='/new' element={<Canvas type="new"/>} />
+      <Route path='/best' element={<Canvas type="best"/>} />
+      <Route path='/thread/:postId' element={<Thread/>} />
+    </Routes>
 		
 		<button 
 		onClick={scrollToTop}
