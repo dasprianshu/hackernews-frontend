@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
 import "./Nav.css";
 import Navbutton from "./Navbutton";
-import Logo from "./assets/Logo.png";
+import Logo from "./assets/BareLogo.png";
 // import React, { useState } from 'react';
 
 function Nav() {
@@ -8,7 +9,11 @@ function Nav() {
 
     return ( 
         <div className="navbar bg-base-200 text-primary-content">
-            <a href='/' className="Logo"> <img src={Logo} alt="logo"></img> </a>
+            <Link to='/'>
+                <button className="Logo btn btn-accent btn-outline no-animation">
+                    <img src={Logo} alt="logo"></img>
+                </button> 
+            </Link>
 
             <ul className="join btnGroup">
                 <Navbutton buttonText="top"/>

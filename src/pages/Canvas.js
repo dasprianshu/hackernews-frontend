@@ -5,31 +5,37 @@ import "./Canvas.css";
 
 function Canvas({type}) {
     const storyUrl = "https://hacker-news.firebaseio.com/v0/";
-	const [items, setItems] = useState([]);
+	const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
 		const fetchItems = async () => {
 			try{
-				const response = await fetch(`${storyUrl}${type}stories.json`);
-				const data = await response.json();	
-				const dataNeeded = await data.slice(0, 30);
-				setItems(dataNeeded);
+				const storedData = sessionStorage.getItem(`${type}`);	
+				if(storedData){
+					setData(JSON.parse(storedData));
+				}
+				else{
+					const response = await fetch(`${storyUrl}${type}stories.json`);
+					const resp = await response.json();	
+					const dataNeeded = await resp.slice(0, 30);
+					sessionStorage.setItem(`${type}`, JSON.stringify(dataNeeded));
+					setData(dataNeeded);
+				}
 				setIsLoading(false);
 			}
 			catch(err){
-				console.log(err);
+				// console.log(err);
 				setIsLoading(false);
 			}
 		}
-		setItems([]);
-		setIsLoading(true);
 
+		setData([]);
+		setIsLoading(true);
 		fetchItems();
 	}, [type])
 
-
-	let allStories = items.map(itemId => (<Content itemId={itemId}/>));
+	let allStories = data.map(itemId => (<Content itemId={itemId}/>));
 
     return (
         <div id='St' className='Canvas '>
