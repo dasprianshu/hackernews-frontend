@@ -11,17 +11,17 @@ function Canvas({type}) {
     useEffect(() => {
 		const fetchItems = async () => {
 			try{
-				const storedData = sessionStorage.getItem(`${type}`);	
-				if(storedData){
-					setData(JSON.parse(storedData));
-				}
-				else{
+				// const storedData = sessionStorage.getItem(`${type}`);	
+				// if(storedData){
+				// 	setData(JSON.parse(storedData));
+				// }
+				// else{
 					const response = await fetch(`${storyUrl}${type}stories.json`);
 					const resp = await response.json();	
 					const dataNeeded = await resp.slice(0, 30);
-					sessionStorage.setItem(`${type}`, JSON.stringify(dataNeeded));
+					// sessionStorage.setItem(`${type}`, JSON.stringify(dataNeeded));
 					setData(dataNeeded);
-				}
+				// }
 				setIsLoading(false);
 			}
 			catch(err){
