@@ -1,40 +1,12 @@
+import { Route, Routes, Navigate } from 'react-router-dom';
+import { useState } from 'react';
 import './App.css';
 import Nav from './Nav';
-import Content from "./Content";
 import Up from './assets/arrow_up.svg';
-import { RotatingSquare } from 'react-loader-spinner';
-import { useState, useEffect} from 'react';
-
+import Canvas from './pages/Canvas';
+import Thread from './pages/Thread';
 
 function App() {
-	const storyUrl = "https://hacker-news.firebaseio.com/v0/";
-	const [reqType, setReqType] = useState('top');
-	const [items, setItems] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
-
-	useEffect(() => {
-		const fetchItems = async () => {
-			try{
-				
-				const response = await fetch(`${storyUrl}${reqType}stories.json`);
-				const data = await response.json();	
-				const dataNeeded = await data.slice(0, 30);
-				setItems(dataNeeded);
-				setIsLoading(false);
-			}
-			catch(err){
-				console.log(err);
-				setIsLoading(false);
-			}
-		}
-		setItems([]);
-		setIsLoading(true);
-
-		fetchItems();
-	}, [reqType])
-
-
-	let allStories = items.map(itemId => (<Content itemId={itemId}/>));
 
 	const [visible, setVisible] = useState(false);
     
@@ -59,26 +31,19 @@ function App() {
 
     window.addEventListener('scroll', toggleVisible);
 	
-	
   return (
     <div id='top' className="App bg-base-200">
-		<Nav reqType={reqType} setReqType={setReqType}/>
+		<Nav/>
 
-		<div id='St' className='Canvas '>
-			<div id='scroll-container' className="artboard bg-base-300 Contain">
-				<RotatingSquare
-				height="200"
-				width="200"
-				color="hsl(var(--a))"
-				ariaLabel="rotating-square-loading"
-				strokeWidth="5"
-				wrapperStyle={{marginTop: "30vh"}}
-				wrapperClass=""
-				visible={isLoading}
-				/>
-				{allStories}
-			</div>
-		</div>
+		<Routes>
+      <Route path='/' element={<Navigate replace to="/top" /> } />
+
+      <Route path='/top' element={<Canvas type="top"/>} />
+      <Route path='/new' element={<Canvas type="new"/>} />
+      <Route path='/best' element={<Canvas type="best"/>} />
+      <Route path='/thread/:postId' element={<Thread/>} />
+    </Routes>
+		
 		<button 
 		onClick={scrollToTop}
 		className="btn btn-square btn-outline btn-accent App-up"

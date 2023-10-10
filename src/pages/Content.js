@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import "./Content.css";
+import { Link } from 'react-router-dom';
 import { ProgressBar } from 'react-loader-spinner';
-import Cmnt from "./assets/forum.svg";
-// import Up from "./assets/arrow_up.svg";
+import "./Content.css";
+import Cmnt from "../assets/forum.svg";
 //https://hacker-news.firebaseio.com/v0/item/856763.json
 
 function Content({itemId}) {
@@ -103,11 +103,11 @@ function Content({itemId}) {
 
 
                     </div>
-                    <a href='/comments'>
+                    <Link to={`/thread/${itemId}`}>
                         <button className="btn md:btn-wide View-post Time bg-neutral normal-case btn-sm text-md hover:bg-accent">
                          Discussion
                         </button>
-                    </a>
+                    </Link>
                 </div>
             </div>
         </div>
