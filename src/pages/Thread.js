@@ -44,7 +44,7 @@ function Thread() {
                 <div className='Comment-cards'>
                     <div className='Comment-card'>
                     <a href={data.url} target='blank' rel="noreferrer noopener">
-                        <h2 className="card-title link link-hover link-accent">{data.title}, by {data.by}</h2>
+                        <h2 className="card-title link link-hover link-accent">{data.title}</h2>
                     </a>
                     <div className='Content-info'>
                         <span className='Comment-username text-base-content'><i>{data.by}</i></span> 

@@ -32,6 +32,7 @@ function Comment({itemID}) {
             <div className="Comment-card bg-base-100" style={{display: `${isLoading ? "none" : " "}`}}>
                 <div className='Content-info'>
                     <span className='Comment-username text-accent'><i>{data.by}</i></span> 
+                    {/* <span className='Comment-time text-secondary '>{itemID}</span> */}
                     <span className='Comment-time text-secondary '>{timeElapsed(data.time)}</span>
                 </div>
                     <div className="Comment-text " dangerouslySetInnerHTML={{ __html: commentText.innerHTML }}></div>
