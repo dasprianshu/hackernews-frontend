@@ -1,0 +1,22 @@
+.Threads{
+    padding-bottom: 1.5%;
+    padding-top: 4rem;
+}
+
+.Threads-canvas{
+    max-width: 840px;
+    width: 86vw;
+	margin: auto;
+    padding: 1.8% 3% 1% 2%;
+    border-radius: 1rem;
+}
+
+@media (max-width: 640px)  {
+    .Threads-canvas{
+        width: 100vw;
+        border-radius: 0;
+
+    }
+}
+
+/* Canvas ' style={{alignItems: "center", }} */

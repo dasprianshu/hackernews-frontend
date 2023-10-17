@@ -1,0 +1,33 @@
+.Comment-title{
+    word-break: break-word;
+    /* padding-left: 5px;
+    padding-right: 8px; */
+}
+
+.Comment-cards{
+    margin-left: 1.5%;
+    border: 0.2em;
+    border-left-style: solid;
+}
+
+.Comment-card{
+    margin-bottom: 1%;
+    padding: 0.5% 0.5% 0.5% 1.5%;
+    /* border-radius: 1rem; */
+}
+
+.Comment-title{
+    padding-left: 1%;
+    padding-right: 2%;
+}
+
+/* .Comment-time{
+
+} */
+
+.Content-info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* padding-right: 1%; */
+}
