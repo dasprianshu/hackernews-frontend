@@ -6,6 +6,8 @@ import parseText from './TextParser';
 function Comment({itemID}) {
     const itemUrl = "https://hacker-news.firebaseio.com/v0/item/";
     const [data, setData] = useState([]);
+    const commentText = parseText(data.text);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const fetchItems = async () => {
@@ -13,11 +15,11 @@ function Comment({itemID}) {
                 const response = await fetch(`${itemUrl}${itemID}.json`);
                 const dataNeeded = await response.json();	
                 setData(dataNeeded);
-                // setIsLoading(false);
+                setIsLoading(false);
             }
             catch(err){
                 console.log(err);
-                // setIsLoading(false);
+                setIsLoading(false);
             }
         }
         fetchItems();   // eslint-disable-next-line
@@ -25,12 +27,14 @@ function Comment({itemID}) {
 
     return (
         <div className="Comment-cards">
-            <div className="Comment-card bg-base-100">
+            <div className="Comment-card Comment-text bg-base-100" style={{display: `${isLoading ? " " : "none"}`}}>Here is a sentence to know the content is Loading...</div>
+
+            <div className="Comment-card bg-base-100" style={{display: `${isLoading ? "none" : " "}`}}>
                 <div className='Content-info'>
-                    <span className='text-accent'><i>{data.by}</i></span> 
-                    <span className='Comment-time text-secondary text-xs'>{timeElapsed(data.time)}</span>
+                    <span className='Comment-username text-accent'><i>{data.by}</i></span> 
+                    <span className='Comment-time text-secondary '>{timeElapsed(data.time)}</span>
                 </div>
-                    <h2 className="Comment-title ">{parseText(data.text)}</h2>
+                    <div className="Comment-text " dangerouslySetInnerHTML={{ __html: commentText.innerHTML }}></div>
             </div>
 
             {data.kids && data.kids.map((item) => (

@@ -7,9 +7,18 @@ img{
 .App-up{
 	background-color: hsl(var(--a));
 	border-width: 0.3em;
-	width: 50vw;
-	max-width: 350px;
+	width: 15vw;
+	height: 4rem;
 	position: fixed;
-	left: 4%;
+	right: 2%;
 	bottom: 4%;
+}
+
+@media (max-width: 900px)  {
+	.App-up{
+		width: 90vw;
+		height: 3rem;
+		right: 5%;
+		bottom: 4%;
+	}
 }

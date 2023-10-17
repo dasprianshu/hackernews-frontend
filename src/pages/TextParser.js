@@ -1,16 +1,13 @@
 
-function parseText(htmlText) {    // The provided HTML text
-    // Parse the HTML text
+function parseText(htmlString) {
+    // Create a new DOMParser
     const parser = new DOMParser();
-    const parsedDocument = parser.parseFromString(htmlText, 'text/html');
-    
-    // Extract the text content
-    const textContent = parsedDocument.body.textContent;
-    
-    // Decode HTML entities
-    // const decodedText = new DOMParser().parseFromString(textContent, 'text/html').body.textContent;
-
-    return textContent;
+  
+    // Parse the HTML string and create a DOM document
+    const doc = parser.parseFromString(htmlString, 'text/html');
+  
+    // Return the body of the DOM document, which contains the HTML elements
+    return doc.body;
 } 
 
 export default parseText;

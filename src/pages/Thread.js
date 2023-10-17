@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { ProgressBar } from 'react-loader-spinner';
 import Comment from './Comment';
-// import Content from './Content';
+import timeElapsed from './ElapsedTime';
 import './Thread.css';
 
 function Thread() {
@@ -41,6 +41,19 @@ function Thread() {
                 borderColor = 'hsl(var(--n))'
                 barColor = 'hsl(var(--a))'
                 />
+                <div className='Comment-cards'>
+                    <div className='Comment-card'>
+                    <a href={data.url} target='blank' rel="noreferrer noopener">
+                        <h2 className="card-title link link-hover link-accent">{data.title}, by {data.by}</h2>
+                    </a>
+                    <div className='Content-info'>
+                        <span className='Comment-username text-base-content'><i>{data.by}</i></span> 
+                        <span className='Comment-time text-base-content '>{timeElapsed(data.time)}</span>
+                    </div>  
+                    </div>
+                </div>
+                    <br></br>
+
                 {data.kids && data.kids.map((item) => (
                     <Comment itemID={item} />
                 ))}
