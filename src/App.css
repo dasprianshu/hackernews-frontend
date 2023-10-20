@@ -6,19 +6,27 @@ img{
 
 .App-up{
 	background-color: hsl(var(--a));
-	border-width: 0.3em;
-	width: 15vw;
-	height: 4rem;
 	position: fixed;
-	right: 2%;
+	border-width: 0.3em;
+	width: 90vw;
+	height: 3rem;
+	right: 5%;
 	bottom: 4%;
 }
 
-@media (max-width: 900px)  {
+@media (min-width: 1200px)  {
 	.App-up{
-		width: 90vw;
-		height: 3rem;
-		right: 5%;
+		width: 15vw;
+	}
+}
+
+@media (min-width: 1000px)  {
+	.App-up{
+		width: 9vw;
+		height: 7rem;
+		right: 0;
 		bottom: 4%;
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;
 	}
 }

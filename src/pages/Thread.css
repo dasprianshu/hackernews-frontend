@@ -3,9 +3,16 @@
     padding-top: 4rem;
 }
 
+.Thread-status{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 3% 2%;
+    font-size: 0.95em;
+}
+
 .Threads-canvas{
-    max-width: 840px;
-    width: 86vw;
+    max-width: 1000px;
+    width: 85vw;
 	margin: auto;
     padding: 1.8% 3% 1% 2%;
     border-radius: 1rem;

@@ -3,10 +3,10 @@ import './Comment.css';
 import timeElapsed from './ElapsedTime';
 import parseText from './TextParser';
 
-function Comment({itemID}) {
+function Comment({itemID, tIndex}) {
     const itemUrl = "https://hacker-news.firebaseio.com/v0/item/";
     const [data, setData] = useState([]);
-    const commentText = parseText(data.text);
+    const commentText = data.text ? parseText(data.text) : <> </>;
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
@@ -25,11 +25,13 @@ function Comment({itemID}) {
         fetchItems();   // eslint-disable-next-line
     }, []);
 
-    return (
-        <div className="Comment-cards">
-            <div className="Comment-card Comment-text bg-base-100" style={{display: `${isLoading ? " " : "none"}`}}>Here is a sentence to know the content is Loading...</div>
+    const colorArr = ["border-accent-focus", "border-orange-500", "border-lime-500", "border-emerald-500", "border-red-500", "border-green-500", "border-pink-500", "border-blue-500"];
 
-            <div className="Comment-card bg-base-100" style={{display: `${isLoading ? "none" : " "}`}}>
+    return (
+        <div className={`Comment-cards border-l-2 sm:border-l-4 border-solid ${colorArr[tIndex]}`}>
+            <div className="Comment-card Comment-text bg-base-100" style={{display: `${isLoading ? " " : "none"}`}}>Here is a sentence to know that the content is loading.</div>
+
+            <div className="Comment-card bg-base-100 " style={{display: `${isLoading ? "none" : " "}`}}>
                 <div className='Content-info'>
                     <span className='Comment-username text-accent'><i>{data.by}</i></span> 
                     {/* <span className='Comment-time text-secondary '>{itemID}</span> */}
@@ -39,7 +41,7 @@ function Comment({itemID}) {
             </div>
 
             {data.kids && data.kids.map((item) => (
-                <Comment itemID={item} />
+                <Comment itemID={item} tIndex={tIndex+1}/>
             ))}
         </div>
     );

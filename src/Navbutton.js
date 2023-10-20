@@ -15,7 +15,7 @@ const Navbutton = ({buttonText}) => {
         <Link to={`/${buttonText}`}>
             <button 
             className={`btn btn-accent join-item ${active} lg:text-lg no-animation lg:btn-wide`}
-            style={{width: "20vw", maxWidth: "230px", minWidth: "5rem"}}
+            style={{width: "20vw", maxWidth: "200px", minWidth: "5rem"}}
             onClick={composite}
             >
             {buttonText}
