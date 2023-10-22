@@ -45,7 +45,7 @@ function Thread() {
                 barColor = 'hsl(var(--a))'
                 />
                 <div className='Comment-cards'>
-                    <div className='Comment-card bg-accent-content' style={{marginBottom: "1%", display: `${isLoading ? "none" : " "}`}}>
+                    <div className='Comment-card bg-base-100' style={{marginBottom: "1%", display: `${isLoading ? "none" : " "}`}}>
                         <a href={data.url} target='blank' rel="noreferrer noopener">
                             <h2 className="card-title link link-hover link-accent">{data.title}</h2>
                         </a>
@@ -56,7 +56,9 @@ function Thread() {
                     <div className="Comment-text " dangerouslySetInnerHTML={{ __html: commentText.innerHTML }}></div> 
                     </div>
                 </div>
-                <div className='Thread-status'><h2>{data.descendants} Comments</h2><h2>{data.score} Points</h2></div>
+                <a href={`https://news.ycombinator.com/item?id=${postId}`} target='blank'>
+                    <div className='Thread-status'><h2>{data.descendants} Comments</h2><h2>{data.score} Points</h2></div>
+                </a>
 
                 {data.kids && data.kids.map((item) => (
                     <Comment itemID={item} tIndex={0} />

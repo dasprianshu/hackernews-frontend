@@ -25,7 +25,7 @@
 }
 
 .Comment-text a{
-    color: hsl(var(--wa));
+    color: hsl(var(--in));
     text-decoration: underline;
 }
 

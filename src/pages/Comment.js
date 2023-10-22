@@ -25,17 +25,19 @@ function Comment({itemID, tIndex}) {
         fetchItems();   // eslint-disable-next-line
     }, []);
 
-    const colorArr = ["border-accent-focus", "border-orange-500", "border-lime-500", "border-emerald-500", "border-red-500", "border-green-500", "border-pink-500", "border-blue-500"];
+    const colorArr = ["border-accent-focus", "border-orange-500", "border-emerald-500", "border-red-500", "border-lime-500", "border-blue-500", "border-pink-500", "border-green-500"];
 
     return (
         <div className={`Comment-cards border-l-2 sm:border-l-4 border-solid ${colorArr[tIndex]}`}>
-            <div className="Comment-card Comment-text bg-base-100" style={{display: `${isLoading ? " " : "none"}`}}>Here is a sentence to know that the content is loading.</div>
+            <div className="Comment-card Comment-text bg-base-200" style={{display: `${isLoading ? " " : "none"}`}}>Here is a sentence to know that the content is loading.</div>
 
-            <div className="Comment-card bg-base-100 " style={{display: `${isLoading ? "none" : " "}`}}>
+            <div className="Comment-card bg-base-200 " style={{display: `${isLoading ? "none" : " "}`}}>
                 <div className='Content-info'>
                     <span className='Comment-username text-accent'><i>{data.by}</i></span> 
                     {/* <span className='Comment-time text-secondary '>{itemID}</span> */}
-                    <span className='Comment-time text-secondary '>{timeElapsed(data.time)}</span>
+                    <a href={`https://hacker-news.firebaseio.com/v0/item/${itemID}.json?print=pretty`} target='blank'>
+                        <span className='Comment-time text-warning '>{timeElapsed(data.time)}</span>
+                    </a>
                 </div>
                     <div className="Comment-text " dangerouslySetInnerHTML={{ __html: commentText.innerHTML }}></div>
             </div>
