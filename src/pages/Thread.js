@@ -47,7 +47,7 @@ function Thread() {
                 <div className='Comment-cards'>
                     <div className='Comment-card bg-base-100' style={{marginBottom: "1%", display: `${isLoading ? "none" : " "}`}}>
                         <a href={data.url} target='blank' rel="noreferrer noopener">
-                            <h2 className="card-title link link-hover link-accent">{data.title}</h2>
+                            <h2 className="card-title link link-accent">{data.title}</h2>
                         </a>
                         <div className='Content-info'>
                             <span className='Comment-username text-base-content'><i>{data.by}</i></span> 

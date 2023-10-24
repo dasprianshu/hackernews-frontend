@@ -1,9 +1,15 @@
 
 .Comment-cards{
-    margin-left: 1.5%;
-    /* border: 0.15em;
-    border-left-style: solid;
+    margin-left: 1%;
+    /* border: 0.15em; */
+    /* border-left-style: solid;
     border-color: hsl(var(--wa)); */
+}
+
+@media (max-width: 640px)  {
+    .Comment-cards{
+        margin-left: 1.5%;
+    }
 }
 
 .Comment-card{
@@ -27,6 +33,7 @@
 .Comment-text a{
     color: hsl(var(--in));
     text-decoration: underline;
+    text-overflow: clip;
 }
 
 pre{

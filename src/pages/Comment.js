@@ -6,8 +6,8 @@ import parseText from './TextParser';
 function Comment({itemID, tIndex}) {
     const itemUrl = "https://hacker-news.firebaseio.com/v0/item/";
     const [data, setData] = useState([]);
-    const commentText = data.text ? parseText(data.text) : <> </>;
     const [isLoading, setIsLoading] = useState(true);
+    const commentText = parseText(data.text);
 
     useEffect(() => {
         const fetchItems = async () => {
@@ -25,7 +25,10 @@ function Comment({itemID, tIndex}) {
         fetchItems();   // eslint-disable-next-line
     }, []);
 
-    const colorArr = ["border-accent-focus", "border-orange-500", "border-emerald-500", "border-red-500", "border-lime-500", "border-blue-500", "border-pink-500", "border-green-500"];
+    if(data.deleted === true)
+        return (<span></span>);
+
+    const colorArr = ["border-accent-focus", "border-orange-500", "border-emerald-500", "border-red-500", "border-lime-500", "border-blue-500", "border-pink-500", "border-green-500", "border-purple-500", "border-red-300"];
 
     return (
         <div className={`Comment-cards border-l-2 sm:border-l-4 border-solid ${colorArr[tIndex]}`}>
@@ -36,7 +39,7 @@ function Comment({itemID, tIndex}) {
                     <span className='Comment-username text-accent'><i>{data.by}</i></span> 
                     {/* <span className='Comment-time text-secondary '>{itemID}</span> */}
                     <a href={`https://hacker-news.firebaseio.com/v0/item/${itemID}.json?print=pretty`} target='blank'>
-                        <span className='Comment-time text-warning '>{timeElapsed(data.time)}</span>
+                        <span className='Comment-time text-warning'>{timeElapsed(data.time)}</span>
                     </a>
                 </div>
                     <div className="Comment-text " dangerouslySetInnerHTML={{ __html: commentText.innerHTML }}></div>
