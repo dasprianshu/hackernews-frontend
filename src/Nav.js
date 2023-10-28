@@ -15,7 +15,7 @@ function Nav() {
                 </button> 
             </Link>
 
-            <ul className="join btnGroup">
+            <ul className="join">
                 <Navbutton buttonText="top"/>
                 <Navbutton buttonText="new"/>
                 <Navbutton buttonText="best"/>

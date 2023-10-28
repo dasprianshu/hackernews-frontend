@@ -1,0 +1,53 @@
+
+.Comment-cards{
+    margin-left: 1%;
+    /* border: 0.15em; */
+    /* border-left-style: solid;
+    border-color: hsl(var(--wa)); */
+}
+
+@media (max-width: 640px)  {
+    .Comment-cards{
+        margin-left: 1.5%;
+    }
+}
+
+.Comment-card{
+    margin-bottom: 2%;
+    padding: 0.5% 1.9% 1.3% 2.5%;
+    /* border-radius: 1rem; */
+}
+
+.Comment-username{
+    font-weight: 500;
+    font-size: 1.1em;
+}
+
+.Comment-text{
+    word-break: break-word;
+    padding: 1%;
+    padding-right: 2%;
+    font-size: 0.96em;
+}
+
+.Comment-text a{
+    color: hsl(var(--in));
+    text-decoration: underline;
+    text-overflow: clip;
+}
+
+pre{
+    overflow-x: auto;
+}
+
+.Comment-time{
+    font-weight: 400;
+    font-size: 0.88em;
+}
+
+.Content-info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* padding-right: 1%; */
+}

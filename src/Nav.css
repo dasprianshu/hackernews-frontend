@@ -5,15 +5,14 @@
 	display: flex;
 	justify-content: space-between;	
 	gap: 0.5rem;
+	padding-right: 0.7rem;
+	padding-left: 0.7rem;
 }
 
 .Logo{
 	padding: 0 0.55rem;
 	width: 3.5rem;
 	max-width: 55px;
-}
-.btnGroup{
-	padding-right: 0.5rem;
 }
 
 .Searchbar{

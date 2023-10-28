@@ -1,19 +1,25 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { ProgressBar } from 'react-loader-spinner';
+import Comment from './Comment';
+import timeElapsed from './ElapsedTime';
+import parseText from './TextParser';
+import './Thread.css';
 
 function Thread() {
     const { postId } = useParams();
     const itemUrl = "https://hacker-news.firebaseio.com/v0/item/";
-    const [story, setStory] = useState([]);
+    const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const commentText = data.text ? parseText(data.text) : <p></p>;
+
 
     useEffect(() => {
 		const fetchItems = async () => {
 			try{
 				const response = await fetch(`${itemUrl}${postId}.json`);
-				const data = await response.json();	
-				setStory(data);
+				const dataNeeded = await response.json();	
+				setData(dataNeeded);
                 setIsLoading(false);
 			}
 			catch(err){
@@ -21,27 +27,43 @@ function Thread() {
                 setIsLoading(false);
 			}
 		}
-		fetchItems();
-	})
-    const disp = JSON.stringify(story.kids);
+		fetchItems();   // eslint-disable-next-line
+	}, [])
     return ( 
-        <div style={{position: "absolute", top: "15%", left: "5%", width: "90vw", wordBreak: "break-word"}}>
-            <h1>The Discussion page is yet to be Made:)</h1>
-            <br></br>
-            <h2>PostId: {postId}</h2>
-            <br></br>
-            <h1>Below are the associated Kids/Comment IDs of the Story:</h1>
-            <h1>{disp}</h1>
-            <ProgressBar
-            height="70"
-            width="100"
-            visible={isLoading}
-            ariaLabel="progress-bar-loading"
-            wrapperStyle={{}}
-            wrapperClass="progress-bar-wrapper"
-            borderColor = 'hsl(var(--n))'
-            barColor = 'hsl(var(--a))'
-            />
+        <div className='Threads'>
+            <div className='Threads-canvas bg-base-300'>
+                {/* <Content itemId={postId}/> */}
+                {/* <br></br> */}
+                <ProgressBar
+                height="70"
+                width="100"
+                visible={isLoading}
+                ariaLabel="progress-bar-loading"
+                wrapperStyle={{}}
+                wrapperClass="progress-bar-wrapper"
+                borderColor = 'hsl(var(--n))'
+                barColor = 'hsl(var(--a))'
+                />
+                <div className='Comment-cards'>
+                    <div className='Comment-card bg-base-100' style={{marginBottom: "1%", display: `${isLoading ? "none" : " "}`}}>
+                        <a href={data.url} target='blank' rel="noreferrer noopener">
+                            <h2 className="card-title link link-accent">{data.title}</h2>
+                        </a>
+                        <div className='Content-info'>
+                            <span className='Comment-username text-base-content'><i>{data.by}</i></span> 
+                            <span className='Comment-time text-base-content '>{timeElapsed(data.time)}</span>
+                        </div>
+                    <div className="Comment-text " dangerouslySetInnerHTML={{ __html: commentText.innerHTML }}></div> 
+                    </div>
+                </div>
+                <a href={`https://news.ycombinator.com/item?id=${postId}`} target='blank'>
+                    <div className='Thread-status'><h2>{data.descendants} Comments</h2><h2>{data.score} Points</h2></div>
+                </a>
+
+                {data.kids && data.kids.map((item) => (
+                    <Comment itemID={item} tIndex={0} />
+                ))}
+            </div>
         </div>
     );
 }
